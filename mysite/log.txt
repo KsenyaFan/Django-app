@@ -1,0 +1,994 @@
+2025-06-11 09:04:56,283 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 09:05:29,470 [ERROR] django.request: Internal Server Error: /shop
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/middleware.py", line 177, in __call__
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 130, in __call__
+    return self._postprocess(request, response, toolbar)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 167, in _postprocess
+    panel.generate_stats(request, response)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/request.py", line 62, in generate_stats
+    session_data = dict(request.session)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 160, in keys
+    return self._session.keys()
+           ^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: django_session
+2025-06-11 09:05:34,294 [ERROR] django.request: Internal Server Error: /shopapp
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/middleware.py", line 177, in __call__
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 130, in __call__
+    return self._postprocess(request, response, toolbar)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 167, in _postprocess
+    panel.generate_stats(request, response)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/request.py", line 62, in generate_stats
+    session_data = dict(request.session)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 160, in keys
+    return self._session.keys()
+           ^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: django_session
+2025-06-11 09:05:39,693 [ERROR] django.request: Internal Server Error: /shop/orders/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/middleware.py", line 177, in __call__
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 130, in __call__
+    return self._postprocess(request, response, toolbar)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 167, in _postprocess
+    panel.generate_stats(request, response)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/request.py", line 62, in generate_stats
+    session_data = dict(request.session)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 160, in keys
+    return self._session.keys()
+           ^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: django_session
+2025-06-11 09:05:43,472 [ERROR] django.request: Internal Server Error: /shop/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/middleware.py", line 177, in __call__
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 130, in __call__
+    return self._postprocess(request, response, toolbar)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/middleware.py", line 167, in _postprocess
+    panel.generate_stats(request, response)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/request.py", line 62, in generate_stats
+    session_data = dict(request.session)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 160, in keys
+    return self._session.keys()
+           ^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: django_session
+2025-06-11 09:07:04,491 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 09:07:46,535 [WARNING] django.request: Not Found: /accounts/logout/
+2025-06-11 09:09:04,644 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 09:09:08,346 [WARNING] django.request: Not Found: /accounts/logout/
+2025-06-11 10:26:23,595 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/mysite/settings.py changed, reloading.
+2025-06-11 10:26:26,417 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:27:25,261 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/myauth/views.py changed, reloading.
+2025-06-11 10:27:28,031 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:29:08,343 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/myauth/views.py changed, reloading.
+2025-06-11 10:29:09,953 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:29:28,233 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/myauth/views.py changed, reloading.
+2025-06-11 10:29:29,479 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:31:30,637 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-11 10:31:31,964 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:31:56,296 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-11 10:31:57,689 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:35:50,466 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:35:51,994 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:36:51,705 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:36:53,516 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:37:09,672 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:37:13,460 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:37:34,665 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:37:37,489 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:38:00,786 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:38:03,246 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:38:50,538 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:38:51,679 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:39:08,656 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:39:09,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:39:49,946 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:39:51,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:41:07,744 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:41:09,318 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:42:33,284 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:42:34,663 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:43:19,983 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 10:43:20,995 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 10:43:47,284 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-11 10:43:48,535 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 12:50:39,591 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 12:50:41,656 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:25:48,871 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:25:50,624 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:26:14,130 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:26:15,592 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:27:36,667 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:27:38,368 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:28:03,756 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:28:05,275 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:28:51,564 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:28:52,881 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:29:02,771 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:29:04,209 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:29:20,264 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-11 13:29:21,240 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:33:26,287 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/mysite/settings.py changed, reloading.
+2025-06-11 13:33:27,724 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-11 13:33:40,781 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/mysite/settings.py changed, reloading.
+2025-06-11 13:33:41,769 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 15:54:18,159 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-12 15:54:20,116 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 15:55:15,687 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-12 15:55:17,262 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 15:59:49,591 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-12 15:59:51,137 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 16:01:49,303 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-12 16:01:51,564 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 16:07:46,531 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-12 16:07:48,002 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-12 16:10:08,730 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-12 16:27:05,723 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 09:36:19,861 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 09:36:32,614 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 09:38:08,648 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 09:38:10,023 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 17:24:52,390 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 17:24:55,224 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 17:28:26,921 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 17:28:29,204 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 17:29:09,231 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 17:29:10,715 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-13 17:33:02,153 [WARNING] django.request: Not Found: /ru/shop/user/1/orsers
+2025-06-13 17:34:48,027 [WARNING] django.request: Not Found: /shop/user/1/orsers
+2025-06-13 17:34:57,136 [WARNING] django.request: Not Found: /ru/shop/user/1/orsers
+2025-06-13 17:35:13,279 [WARNING] django.request: Not Found: /ru/shop/ users/3/orders/
+2025-06-13 17:51:20,470 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-13 17:51:22,183 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 08:33:56,080 [WARNING] django.request: Not Found: /accounts/logout/
+2025-06-14 08:34:18,504 [WARNING] django.request: Not Found: /accounts/login/
+2025-06-14 08:34:29,375 [WARNING] django.request: Method Not Allowed (GET): /admin/logout/
+2025-06-14 08:34:29,393 [WARNING] django.request: Method Not Allowed: /admin/logout/
+2025-06-14 08:34:30,906 [WARNING] django.request: Method Not Allowed (GET): /admin/logout/
+2025-06-14 08:34:30,928 [WARNING] django.request: Method Not Allowed: /admin/logout/
+2025-06-14 08:46:20,502 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 08:46:24,264 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 08:49:26,779 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/
+2025-06-14 08:49:36,104 [WARNING] django.request: Not Found: /ru/shop/users/7/orders/
+2025-06-14 08:50:42,475 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/
+2025-06-14 08:55:30,772 [WARNING] django.request: Not Found: /favicon.ico
+2025-06-14 08:57:15,216 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 08:57:17,406 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 08:57:56,359 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 08:57:57,881 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 09:08:38,929 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 09:08:41,423 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 09:11:08,074 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 09:11:09,378 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-14 09:12:00,297 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-14 09:12:02,080 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 12:57:29,461 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-15 12:57:31,861 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 12:58:31,807 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/urls.py changed, reloading.
+2025-06-15 12:58:35,451 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 12:58:49,134 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/export/
+2025-06-15 13:00:32,600 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:00:36,355 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:01:30,800 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:01:35,240 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:14:46,315 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:14:48,461 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:15:30,160 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:15:31,603 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:18:41,095 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:18:42,638 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:19:05,131 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:19:06,117 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:19:27,765 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:19:28,728 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:25:40,295 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:25:42,155 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:26:20,343 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:26:21,542 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:26:55,868 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:26:57,116 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:27:35,231 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:27:37,150 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:29:14,680 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:29:15,916 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:38:01,578 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/models.py changed, reloading.
+2025-06-15 13:38:03,425 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:39:28,815 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/7/change/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1342, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1330, in save_formset
+    formset.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 796, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 959, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 1157, in save_new
+    return super().save_new(form, commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 769, in save_new
+    return form.save(commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 554, in save
+    self.instance.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+2025-06-15 13:39:32,825 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/7/change/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1342, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1330, in save_formset
+    formset.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 796, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 959, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 1157, in save_new
+    return super().save_new(form, commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 769, in save_new
+    return form.save(commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 554, in save
+    self.instance.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+2025-06-15 13:40:07,913 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-06-15 13:40:13,004 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/7/change/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1342, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1330, in save_formset
+    formset.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 796, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 959, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 1157, in save_new
+    return super().save_new(form, commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 769, in save_new
+    return form.save(commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 554, in save
+    self.instance.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+2025-06-15 13:41:04,477 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/3/change/
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1895, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1342, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/contrib/admin/options.py", line 1330, in save_formset
+    formset.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 796, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 959, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 1157, in save_new
+    return super().save_new(form, commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 769, in save_new
+    return form.save(commit=commit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/forms/models.py", line 554, in save
+    self.instance.save()
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 235, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/debug_toolbar/panels/sql/tracking.py", line 160, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/utils.py", line 1811, in runner
+    return sentry_patched_function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/sentry_sdk/integrations/django/__init__.py", line 651, in execute
+    result = real_execute(self, sql, params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oksana/PycharmProjects/python_django/venv/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: shopapp_order_products.order_id, shopapp_order_products.product_id
+2025-06-15 13:42:42,952 [WARNING] django.request: Not Found: /ru/shop/users3/orders/export/
+2025-06-15 13:44:08,894 [INFO] django.utils.autoreload: /Users/oksana/PycharmProjects/python_django/Django_Cache/mysite/shopapp/views.py changed, reloading.
+2025-06-15 13:44:10,351 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
