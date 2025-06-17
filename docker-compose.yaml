@@ -2,17 +2,18 @@ services:
   app:
     build:
       dockerfile: ./Dockerfile
-    command:
-      - gunicorn
-      - mysite.wsgi:application
-      - --bind
-      - "0.0.0.0:8000"
-#          sh -c "python manage.py makemigrations &&
-#          python manage.py migrate &&
-#          python manage.py runserver 0.0.0.0:8080"
+    command: >
+      sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      gunicorn mysite.wsgi:application --bind 0.0.0.0:8000"
+#      - gunicorn
+#      - mysite.wsgi:application
+#      - --bind
+#      - "0.0.0.0:8000"
+
     ports:
       - "8000:8000"
-    restart: :always
+    restart: always
     env_file:
       - .env
     logging:
