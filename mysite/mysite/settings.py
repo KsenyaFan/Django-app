@@ -216,7 +216,7 @@ logging.config.dictConfig({
     },
     "loggers": {
         "": {
-            "level": "LOGLEVEL",
+            "level": LOGLEVEL,
             "handlers": ["console"],
         },
     },
