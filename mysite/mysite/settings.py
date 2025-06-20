@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     'django.contrib.sitemaps',
 
-    'debug_toolbar',
+    # 'debug_toolbar',
     'rest_framework',
     'django_filters',
     'drf_spectacular',
@@ -83,8 +83,10 @@ INSTALLED_APPS = [
     'myapiapp.apps.MyapiappConfig',
 ]
 
+
 MIDDLEWARE = [
     # 'django.middleware.cache.UpdateCacheMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -184,7 +186,12 @@ LANGUAGES = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/app/staticfiles'
+
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
